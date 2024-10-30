@@ -1,5 +1,5 @@
 %Names: Omar Douglas Cardin Nguyen Shawn Walden Isiah Morris
-%brick = ConnectBrick('POOLA'); % Connects to the Brick, delete if already connected
+brick = ConnectBrick('POOLA'); % Connects to the Brick, delete if already connected
 %terminate program by using control + c
 
 %Motor Ports:
@@ -14,11 +14,11 @@
     %Motor: Q, E
     %Lift : K, L
 
-%brick.playTone(100, 440, 100); %connect tone A=440hz
+brick.playTone(100, 440, 50); %connect tone
 global key 
 InitKeyboard();
 %speed control
-y=50; %lift strength
+y=25; %lift strength
 x=50; %motor strength
 
 while 1
