@@ -19,7 +19,7 @@ Strength (Decrease, Increase)
     Lift : K, L
 %}
 
-function = ManualControl()
+function ManualControl()
      ManualControl = {
     
 global key 
