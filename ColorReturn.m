@@ -7,39 +7,20 @@ Test Color Sensor
 
 
 %}
+
 while 1 
     brick.SetColorMode(4, 2); % Define Color Function, In Color Mode
     color = brick.ColorCode(4);
-    brick.MoveMotor('AD', 10);
     if (color == 2) % Test for blue color
-        brick.StopAllMotors();
-        for i=0:1
-            brick.playTone(100, 440, 100);
-            pause(1);
-        end
-    break; %End loop
+    disp("blue");  
     end
-    
     if (color == 3) % Test for green color
-        brick.StopAllMotors();
-        for i=0:2
-            brick.playTone(100, 440, 100);
-            pause(1);
-        end
-    break; %End loop
+    disp("green");   
     end
     if (color == 5) % Test for red color
-        brick.StopAllMotors();
-        pause(1);
-        brick.MoveMotor('AD', 10);
-
+    disp("red");
     end
     if (color == 4) % Test for yellow color
-        brick.StopAllMotors();
-        pause(1);
-        brick.MoveMotor('AD', 10);
-    break; %End loop
-
+    disp("yellow");
     end
-
 end
