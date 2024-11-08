@@ -1,4 +1,3 @@
-Resources:
 %{
 documentation
 https://canvas.asu.edu/courses/199417/pages/matlab-documentation-2?module_item_id=14453209
@@ -46,4 +45,29 @@ centimeters
 if it's too close or too far, it will return 255 (max distance)
 
 
+dimensions
+~16cmx21cm
 %}
+
+%test Ultrasonic Sensor
+x = 25
+while 1
+    brick.MoveMotor('AD', x);
+    distanceZ = brick.UltrasonicDist(3);
+    distanceRight = brick.UltrasonicDist(4);
+    distanceLeft  = brick.UltrasonicDist(1);
+    if (distance == 45)
+        brick.StopMotor('AD', 'Coast'); % Motor AD drift to Stop
+        if (distanceLeft>=10) %turn right
+        brick.MoveMotor('D', -x);
+        brick.MoveMotor('A', x);
+        pause(0.5);
+        end
+    else if (distanceRight>=10)
+        brick.MoveMotor('D', x);
+        brick.MoveMotor('A', -x);
+        pause(0.5);    
+        end
+    end
+end
+brick.StopMotor('AD', 'Coast'); % Motor AD drift to Stop
