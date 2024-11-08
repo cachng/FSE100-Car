@@ -50,6 +50,7 @@ dimensions
 %}
 
 %test Ultrasonic Sensor
+%{ 
 x = 25
 while 1
     brick.MoveMotor('AD', x);
@@ -71,3 +72,6 @@ while 1
     end
 end
 brick.StopMotor('AD', 'Coast'); % Motor AD drift to Stop
+%}
+brick.playTone(100, 440, 100);  %Sound to A=440hz
+RightTurnAlgothrim(2)

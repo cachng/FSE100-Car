@@ -19,8 +19,7 @@ Strength (Decrease, Increase)
     Lift : K, L
 %}
 
-function ManualControl()
-     ManualControl = {
+    function ManualControlSD()
     
 global key 
 InitKeyboard();
@@ -29,11 +28,10 @@ y=10; %lift strength
 x=30; %motor strength
 
 while 1
+    %Check for Color
+    Color = brick.SetColorMode(4, 2);
     pause (0.1);
     switch key
-
-%Check for Color
-    Color = brick.SetColorMode(4, 2);
 
 %Strength Adjustment
     %motor
@@ -93,7 +91,7 @@ while 1
         
         case (Color==4) %Quit Program/Fail Safe (assigned to color, when it
         %does not detect color, it should quit)
-        pause (1); %1 seconds before it shuts off (it probably won't accept movement input in the middle of it)
+        pause(1); %1 seconds before it shuts off (it probably won't accept movement input in the middle of it)
         % can probably solve with a for statement that handles input
         % temporarily, it won't be efficient but it may work
             if (Color==4)
@@ -101,8 +99,7 @@ while 1
             break;
             end
                 
-        end
     end
-CloseKeyboard ( ) ;
-}
+end
+CloseKeyboard();
 end
