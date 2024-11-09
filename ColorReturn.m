@@ -9,8 +9,8 @@ Test Color Sensor
 %}
 
 while 1 
-    brick.SetColorMode(4, 2); % Define Color Function, In Color Mode
-    color = brick.ColorCode(4);
+    brick.SetColorMode(2, 2); % Define Color Function, In Color Mode
+    color = brick.ColorCode(2);
     if (color == 2) % Test for blue color
     disp("blue");  
     end
@@ -23,4 +23,5 @@ while 1
     if (color == 4) % Test for yellow color
     disp("yellow");
     end
+    pause(0.1);
 end
