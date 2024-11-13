@@ -31,7 +31,7 @@ function floodFill(row, col)
     % Recursively fills out adjacent elements from up, down, left, & right
     % based on configuration of walls in a switch case
     % https://miro.medium.com/v2/resize:fit:1100/format:webp/1*dhFlf8CtoDKifTVqS3-zqg.jpeg
-    switch configuration(row, col) % row and col is the current position of the car
+    switch config(row, col) % row and col is the current position of the car
         case 0
             floodFill(row - 1, col);
             floodFill(row + 1, col);
