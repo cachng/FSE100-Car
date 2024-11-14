@@ -5,7 +5,8 @@
 distance = zeros(3, 6); % array that contains distance away from destination
 maze = zeros(3, 6); % array representation of maze, contains config # of maze
 position = [1, 1]; % position of robot in maze
-
+endRow % row of destination
+endCol % col of destination
 while 1
     % Check if robot is on the destination square
     if isequal(distance(position(1), position(2)), 0)
@@ -22,5 +23,6 @@ while 1
     % straight, otherwise 50/50 left right
 
     % Update robot's position
-    
+    position(1) = row;
+    position(2) = col;
 end
