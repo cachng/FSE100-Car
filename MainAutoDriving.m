@@ -11,7 +11,7 @@ while ~isequal(distance(position(1), position(2)), 0) % loops until reached dest
     % Have Ultrasonic sensors detect walls and update maze config of the
     % current position of the robot
     % TODO: figure out how to make ultrasonic sensors work make it a
-    % function if possible
+    % function if possible **The orientation of the robot matters
     walls(position(0), position(1)) = something;
 
     % Solve the Maze by floodfilling
