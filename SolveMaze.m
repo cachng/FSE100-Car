@@ -1,4 +1,4 @@
-function solveMaze(endRow, endCol, distance, maze)
+function solveMaze(endRow, endCol, distance, walls)
 % Function that solves the maze through floodfilling
 % Source: https://medium.com/@minikiraniamayadharmasiri/micromouse-from-scratch-algorithm-maze-traversal-shortest-path-floodfill-741242e8510
 
@@ -12,7 +12,7 @@ function solveMaze(endRow, endCol, distance, maze)
 % (11 is an error, suppose to be like 12,13, & 14; config 15 is 0; 16 not needed)
 
 % updates distance away from the end 
-    function floodFill(row, col, maze)
+    function floodFill(row, col, walls)
         
         % Checks if it is out of bounds
         if row < 1 || row > rows || col < 1 || col > cols || visited == true
