@@ -3,12 +3,12 @@ function solveMaze(endRow, endCol, distance, maze)
 % Source: https://medium.com/@minikiraniamayadharmasiri/micromouse-from-scratch-algorithm-maze-traversal-shortest-path-floodfill-741242e8510
 
 % Global Variables & Arrays
-rows = 3; % amount of rows in the maze
-cols = 6; % amount of columns in the maze
-distance = zeros(rows, cols); % contains the amount of cells away from destination
-visited = false(rows, cols); % true or false if already filled
-distFromEnd = 0; % the amount of blocks the position is away from the maze
-config = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; % Configs of mazes
+    rows = 3; % amount of rows in the maze
+    cols = 6; % amount of columns in the maze
+    distance = zeros(rows, cols); % contains the amount of cells away from destination
+    visited = false(rows, cols); % true or false if already filled
+    distFromEnd = 0; % the amount of blocks the position is away from the maze
+    config = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; % Configs of mazes
 % (11 is an error, suppose to be like 12,13, & 14; config 15 is 0; 16 not needed)
 
 % updates distance away from the end 
