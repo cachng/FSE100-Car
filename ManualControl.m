@@ -1,5 +1,5 @@
 %Names: Omar Douglas Cardin Nguyen Shawn Walden Isiah Morris
-%terminate program by using control + c
+%t+erminate program by using control + c
 
 %Motor Ports:
     %Left Motor: A

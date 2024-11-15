@@ -8,7 +8,7 @@ right motor: D
 %}
 
 
-leftMotorFrontAmt = 40;   %A
+leftMotorFrontAmt = 41;   %A
 rightMotorFrontAmt = 40; %D
 
 leftMotorBackAmt = -15;
@@ -47,6 +47,7 @@ while 1
     
     %Navigation
     if rightWallDist > thresholdRightWall                %if right wall falls away from right side
+        disp('no right wall');
         pause(0.6); %wait to get past wall
         brick.StopMotor('AD', 'Brake');
         brick.MoveMotor('A', -20);
