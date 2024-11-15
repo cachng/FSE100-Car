@@ -38,7 +38,7 @@ while 1
         pause(0.5);
     elseif color == 2 || color == 3    %if color is blue or green, activate keyboard control
         disp('blue/green');
-        run('kbrdcontrol');
+        disp('switch to manual control');
         brick.MoveMotor('A', motorlf);
         brick.MoveMotor('D', motorrf);
         pause(6);
