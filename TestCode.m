@@ -8,8 +8,8 @@ right motor: D
 %}
 
 
-leftMotorFrontAmt = 41;   %A
-rightMotorFrontAmt = 40; %D
+leftMotorFrontAmt = 40;   %D
+rightMotorFrontAmt = 41.5; %A
 
 leftMotorBackAmt = -15;
 rightMotorBackAmt = -15;
@@ -30,27 +30,27 @@ while 1
     rightWallDist = brick.UltrasonicDist(1);
     
     %Color Decisions
-    if color == 5                      %if color is red stop for 4 sec
-        disp('red');
-        brick.StopMotor('AD', 'Brake'); %Brake to prevent going off course
-        pause(4); %wait 4 seconds
-        brick.MoveMotor('A', leftMotorFrontAmt);
-        brick.MoveMotor('D', rightMotorFrontAmt);
-        pause(0.5);
-    elseif color == 2 || color == 3    %if color is blue or green, activate keyboard control
-        disp('blue/green');
-        disp('switch to manual control');
-        brick.MoveMotor('A', leftMotorFrontAmt);
-        brick.MoveMotor('D', rightMotorFrontAmt);
-        pause(6);
-    end
+    % if color == 5                      %if color is red stop for 4 sec
+    %     disp('red');
+    %     brick.StopMotor('AD', 'Brake'); %Brake to prevent going off course
+    %     pause(4); %wait 4 seconds
+    %     brick.MoveMotor('A', leftMotorFrontAmt);
+    %     brick.MoveMotor('D', rightMotorFrontAmt);
+    %     pause(0.5);
+    % elseif color == 2 || color == 3    %if color is blue or green, activate keyboard control
+    %     disp('blue/green');
+    %     disp('switch to manual control');
+    %     brick.MoveMotor('A', leftMotorFrontAmt);
+    %     brick.MoveMotor('D', rightMotorFrontAmt);
+    %     break
+    % end
     
     %Navigation
     if rightWallDist > thresholdRightWall                %if right wall falls away from right side
         disp('no right wall');
         pause(0.6); %wait to get past wall
         brick.StopMotor('AD', 'Brake');
-        brick.MoveMotor('A', -20);
+        brick.MoveMotor('A', -25);
         pause(2.3); %turning time
         brick.StopMotor('A', 'Brake');
         brick.MoveMotor('A', leftMotorFrontAmt);
@@ -76,9 +76,11 @@ while 1
             brick.MoveMotor('A', leftMotorFrontAmt);
             brick.MoveMotor('D', rightMotorFrontAmt);
             pause(2);
+            disp("saw r+");
         else %if there is a wall on the right
-            brick.MoveMotor('A', -21);
-            pause(2.5);
+            disp("jgwjg")
+            brick.MoveMotor('A', -100);
+            pause(100);
             brick.StopMotor('A', 'Brake');
             brick.MoveMotor('A', leftMotorFrontAmt);
             brick.MoveMotor('D', rightMotorFrontAmt);

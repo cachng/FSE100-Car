@@ -1,5 +1,5 @@
 %Names: Omar Douglas Cardin Nguyen Shawn Walden Isiah Morris
-%t+erminate program by using control + c
+%t+wwerminate program by using control + c
 
 %Motor Ports:
     %Left Motor: A
@@ -8,7 +8,7 @@
 
 %Controls:
 %Movement: WASD
-%Lift: I (lower), O (raise)
+%Lift: I (lower), O (raise)w
 %Strength (Decrease, Increase)
     %Motor: Q, E
     %Lift : K, L
