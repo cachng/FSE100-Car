@@ -12,7 +12,7 @@ while ~isequal(distance(position(1), position(2)), 0) % loops until reached dest
     % current position of the robot
     % TODO: figure out how to make ultrasonic sensors work make it a
     % function if possible **The orientation of the robot matters
-    walls(position(0), position(1)) = something;
+    
 
     % Solve the Maze by floodfilling
     SolveMaze(endRow, endCol, distance, walls);

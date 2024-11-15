@@ -1,16 +1,18 @@
-function solveMaze(endRow, endCol, distance, walls)
+function distance = SolveMaze(endRow, endCol, walls)
 % Function that solves the maze through floodfilling
 % Source: https://medium.com/@minikiraniamayadharmasiri/micromouse-from-scratch-algorithm-maze-traversal-shortest-path-floodfill-741242e8510
 
 % Global Variables & Arrays
-    rows = 3; % amount of rows in the maze
-    cols = 6; % amount of columns in the maze
+rows = 3; % amount of rows in the maze
+cols = 6; % amount of columns in the maze
     distance = zeros(rows, cols); % contains the amount of cells away from destination
     visited = false(rows, cols); % true or false if already filled
     distFromEnd = 0; % the amount of blocks the position is away from the maze
     config = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; % Configs of mazes
 % (11 is an error, suppose to be like 12,13, & 14; config 15 is 0; 16 not needed)
 
+floodFill(endRow, endCol, walls);
+return;
 % updates distance away from the end 
     function floodFill(row, col, walls)
         
@@ -27,7 +29,7 @@ function solveMaze(endRow, endCol, distance, walls)
         % Recursively fills out adjacent elements from up, down, left, & right
         % based on configuration of walls in a switch case
         % https://miro.medium.com/v2/resize:fit:1100/format:webp/1*dhFlf8CtoDKifTVqS3-zqg.jpeg
-        switch config(maze(row, col)) % row and col is the current position of the car
+        switch config(walls(row, col)) % row and col is the current position of the car
             case 0
                 floodFill(row - 1, col);
                 floodFill(row + 1, col);

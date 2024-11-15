@@ -1,4 +1,4 @@
-function pathFound = floodFillMaze(maze, startPoint, endPoint)
+function pathFound = FloodfillFunction(maze, startPoint, endPoint)
     % Input:
     %   maze - a 2D array representing the maze (1 for path, 0 for wall)
     %   startPoint - [row, col] of the starting position (on the first or last row)
