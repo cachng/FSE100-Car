@@ -1,5 +1,4 @@
 %Names: Omar Douglas Cardin Nguyen Shawn Walden Isiah Morris
-brick = ConnectBrick('POOLA'); % Connects to the Brick, delete if already connected
 %terminate program by using control + c
 
 %Motor Ports:
