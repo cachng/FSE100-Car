@@ -8,8 +8,6 @@ right motor: D
 %}
 
 
-leftMotorFrontAmt = 40;   %D
-rightMotorFrontAmt = 40; %A
 leftMotorFrontAmt = 41;   %A
 rightMotorFrontAmt = 40; %D
 
