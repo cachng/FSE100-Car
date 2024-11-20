@@ -8,11 +8,16 @@ right motor: D
 %}
 
 
+<<<<<<< HEAD
 leftMotorFrontAmt = 40;   %D
 rightMotorFrontAmt = 40; %A
+=======
+leftMotorFrontAmt = 41;   %A
+rightMotorFrontAmt = 40; %D
+>>>>>>> 307f8a3e2f119eb027b8472a8efec19adedc1ed9
 
+rightMotorBackAmt = -15.7;
 leftMotorBackAmt = -15;
-rightMotorBackAmt = -15;
 
 thresholdRightWall = 50;
 thresholdFrontWall = 25;
@@ -21,8 +26,8 @@ brick.SetColorMode(2, 2);
 
 while 1
     %Move Forward
-    brick.MoveMotor('A', leftMotorFrontAmt);
-    brick.MoveMotor('D', rightMotorFrontAmt);
+    brick.MoveMotor('A', rightMotorFrontAmt);
+    brick.MoveMotor('D', leftMotorFrontAmt);
     
     %Get Sensor Readings
     frontWallDist = brick.UltrasonicDist(3);
@@ -32,6 +37,7 @@ while 1
     disp(rightWallDist);
     
     %Color Decisions
+<<<<<<< HEAD
     % if color == 5                      %if color is red stop for 4 sec
     %     disp('red');
     %     brick.StopMotor('AD', 'Coast'); %Coast to prevent going off course
@@ -46,6 +52,22 @@ while 1
     %     brick.MoveMotor('D', rightMotorFrontAmt);
     %     break
     % end
+=======
+    if color == 5                      %if color is red stop for 4 sec
+        disp('red');
+        brick.StopMotor('AD', 'Brake'); %Brake to prevent going off course
+        pause(4); %wait 4 seconds
+        brick.MoveMotor('A', leftMotorFrontAmt);
+        brick.MoveMotor('D', rightMotorFrontAmt);
+        pause(0.5);
+    elseif color == 2 || color == 3    %if color is blue or green, activate keyboard control
+        disp('blue/green');
+        disp('switch to manual control');
+        brick.MoveMotor('A', leftMotorFrontAmt);
+        brick.MoveMotor('D', rightMotorFrontAmt);
+        pause(6);
+    end
+>>>>>>> 307f8a3e2f119eb027b8472a8efec19adedc1ed9
     
     %Navigation
     if rightWallDist > thresholdRightWall                %if right wall falls away from right side
@@ -54,9 +76,15 @@ while 1
         brick.StopMotor('AD', 'Coast');
         brick.MoveMotor('A', -20);
         pause(2.3); %turning time
+<<<<<<< HEAD
         brick.StopMotor('A', 'Coast');
         brick.MoveMotor('A', leftMotorFrontAmt);
         brick.MoveMotor('D', rightMotorFrontAmt);
+=======
+        brick.StopMotor('A', 'Brake');
+        brick.MoveMotor('A', rightMotorFrontAmt);
+        brick.MoveMotor('D', leftMotorFrontAmt);
+>>>>>>> 307f8a3e2f119eb027b8472a8efec19adedc1ed9
         pause(2);
     end
     if frontWallDist < thresholdFrontWall %if hit wall in front
@@ -65,6 +93,7 @@ while 1
         disp('touched');
         brick.StopMotor('AD');          %stop
         % dist = brick.UltrasonicDist(1); %get distance from right wall
+<<<<<<< HEAD
         brick.MoveMotorAngleRel('A', leftMotorBackAmt, 180, "Coast");
         brick.MoveMotorAngleRel('D', -rightMotorBackAmt, 180, "Coast");
         % pause(4); %time to back up from wall
@@ -77,14 +106,37 @@ while 1
             brick.StopMotor('D', 'Coast');
             brick.MoveMotor('A', leftMotorFrontAmt);
             brick.MoveMotor('D', rightMotorFrontAmt);
+=======
+        brick.MoveMotor('A', rightMotorBackAmt);
+        brick.MoveMotor('D', leftMotorBackAmt);
+        pause(3.5); %time to back up from wall
+        brick.StopMotor('AD', 'Brake'); %stop
+        
+        %theoretically should never get here if previous method right
+        if rightWallDist < thresholdRightWall %if there is no wall on the right
+            brick.MoveMotor('D', -18.5);
+            pause(2.5);
+            brick.StopMotor('D', 'Brake');
+            brick.MoveMotor('A', rightMotorFrontAmt);
+            brick.MoveMotor('D', leftMotorFrontAmt);
+>>>>>>> 307f8a3e2f119eb027b8472a8efec19adedc1ed9
             pause(2);
             disp("jaja")
         else %if there is a wall on the right
+<<<<<<< HEAD
             brick.MoveMotor('A', -21);
             pause(2.5);
             brick.StopMotor('A', 'Coast');
             brick.MoveMotor('A', leftMotorFrontAmt);
             brick.MoveMotor('D', rightMotorFrontAmt);
+=======
+            disp("jgwjg")
+            brick.MoveMotor('A', -100);
+            pause(100);
+            brick.StopMotor('A', 'Brake');
+            brick.MoveMotor('A', rightMotorFrontAmt);
+            brick.MoveMotor('D', leftMotorFrontAmt);
+>>>>>>> 307f8a3e2f119eb027b8472a8efec19adedc1ed9
             pause(2);
         end
     end
