@@ -9,7 +9,7 @@ right motor: D
 
 
 leftMotorFrontAmt = 40;   %D
-rightMotorFrontAmt = 41.5; %A
+rightMotorFrontAmt = 40; %A
 
 leftMotorBackAmt = -15;
 rightMotorBackAmt = -15;
@@ -26,13 +26,15 @@ while 1
     
     %Get Sensor Readings
     frontWallDist = brick.UltrasonicDist(3);
+    disp(frontWallDist);
     color = brick.ColorCode(2);
     rightWallDist = brick.UltrasonicDist(1);
+    disp(rightWallDist);
     
     %Color Decisions
     % if color == 5                      %if color is red stop for 4 sec
     %     disp('red');
-    %     brick.StopMotor('AD', 'Brake'); %Brake to prevent going off course
+    %     brick.StopMotor('AD', 'Coast'); %Coast to prevent going off course
     %     pause(4); %wait 4 seconds
     %     brick.MoveMotor('A', leftMotorFrontAmt);
     %     brick.MoveMotor('D', rightMotorFrontAmt);
@@ -49,10 +51,10 @@ while 1
     if rightWallDist > thresholdRightWall                %if right wall falls away from right side
         disp('no right wall');
         pause(0.6); %wait to get past wall
-        brick.StopMotor('AD', 'Brake');
-        brick.MoveMotor('A', -25);
+        brick.StopMotor('AD', 'Coast');
+        brick.MoveMotor('A', -20);
         pause(2.3); %turning time
-        brick.StopMotor('A', 'Brake');
+        brick.StopMotor('A', 'Coast');
         brick.MoveMotor('A', leftMotorFrontAmt);
         brick.MoveMotor('D', rightMotorFrontAmt);
         pause(2);
@@ -63,25 +65,24 @@ while 1
         disp('touched');
         brick.StopMotor('AD');          %stop
         % dist = brick.UltrasonicDist(1); %get distance from right wall
-        brick.MoveMotor('A', leftMotorBackAmt);
-        brick.MoveMotor('D', rightMotorBackAmt);
-        pause(3.5); %time to back up from wall
-        brick.StopMotor('AD', 'Brake'); %stop
+        brick.MoveMotorAngleRel('A', leftMotorBackAmt, 180, "Coast");
+        brick.MoveMotorAngleRel('D', -rightMotorBackAmt, 180, "Coast");
+        % pause(4); %time to back up from wall
+        brick.StopMotor('AD', 'Coast'); %stop
         
         %theoretically should never get here if previous method right
         if rightWallDist < thresholdRightWall %if there is no wall on the right
-            brick.MoveMotor('D', -18.5);
-            pause(2.5);
-            brick.StopMotor('D', 'Brake');
+            brick.MoveMotor('D', -20);
+            pause(3.2);
+            brick.StopMotor('D', 'Coast');
             brick.MoveMotor('A', leftMotorFrontAmt);
             brick.MoveMotor('D', rightMotorFrontAmt);
             pause(2);
-            disp("saw r+");
+            disp("jaja")
         else %if there is a wall on the right
-            disp("jgwjg")
-            brick.MoveMotor('A', -100);
-            pause(100);
-            brick.StopMotor('A', 'Brake');
+            brick.MoveMotor('A', -21);
+            pause(2.5);
+            brick.StopMotor('A', 'Coast');
             brick.MoveMotor('A', leftMotorFrontAmt);
             brick.MoveMotor('D', rightMotorFrontAmt);
             pause(2);
