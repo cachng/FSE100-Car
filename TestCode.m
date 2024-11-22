@@ -108,7 +108,6 @@ while 1
             brick.MoveMotor('A', rightMotorFrontAmt);
             brick.MoveMotor('D', leftMotorFrontAmt);
             pause(2);
-            disp("jaja")
         else %if there is a wall on the right
             brick.MoveMotor('A', -21);
             pause(2.5);
