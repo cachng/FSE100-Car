@@ -1,4 +1,5 @@
-function distance = SolveMaze(endRow, endCol, walls)
+function distance = SolveMaze(endRow, endCol)
+%Assume that walls matrix was created in Self Drive Function   
 % Function that solves the maze through floodfilling
 % Source: https://medium.com/@minikiraniamayadharmasiri/micromouse-from-scratch-algorithm-maze-traversal-shortest-path-floodfill-741242e8510
 
@@ -16,8 +17,8 @@ return;
 % updates distance away from the end 
     function floodFill(row, col, walls)
         
-        % Checks if it is out of bounds
-        if row < 1 || row > rows || col < 1 || col > cols || visited == true
+        % Checks if it is out of bounds or the cell has already been filled
+     if row < 1 || row > rows || col < 1 || col > cols || visited == true
             return;
         end
     
@@ -31,52 +32,52 @@ return;
         % https://miro.medium.com/v2/resize:fit:1100/format:webp/1*dhFlf8CtoDKifTVqS3-zqg.jpeg
         switch config(walls(row, col)) % row and col is the current position of the car
             case 0
-                floodFill(row - 1, col, walls);
-                floodFill(row + 1, col, walls);
-                floodfill(row, col - 1, walls);
-                floodFill(row, col + 1, walls);
+                floodFill(row - 1, col);
+                floodFill(row + 1, col);
+                floodfill(row, col - 1);
+                floodFill(row, col + 1);
             case 1
-                floodFill(row - 1, col, walls);
-                floodFill(row + 1, col, walls);
-                floodFill(row, col + 1, walls);
+                floodFill(row - 1, col);
+                floodFill(row + 1, col);
+                floodFill(row, col + 1);
             case 2
-                floodFill(row + 1, col, walls);
-                floodFill(row, col - 1, walls);
-                floodFill(row, col + 1, walls);
+                floodFill(row + 1, col);
+                floodFill(row, col - 1);
+                floodFill(row, col + 1);
             case 3
-                floodFill(row - 1, col, walls);
-                floodFill(row + 1, col, walls);
-                floodFill(row, col - 1, walls);
+                floodFill(row - 1, col);
+                floodFill(row + 1, col);
+                floodFill(row, col - 1);
             case 4
-                floodFill(row - 1, col, walls);
-                floodFill(row, col - 1, walls);
-                floodFill(row, col + 1, walls);
+                floodFill(row - 1, col);
+                floodFill(row, col - 1);
+                floodFill(row, col + 1);
             case 5
-                floodFill(row - 1, col, walls);
-                floodFill(row, col + 1, walls);
+                floodFill(row - 1, col);
+                floodFill(row, col + 1);
             case 6
-                floodFill(row - 1, col, walls);
-                floodFill(row, col - 1, walls);
+                floodFill(row - 1, col);
+                floodFill(row, col - 1);
             case 7
-                floodFill(row + 1, col, walls);
-                floodFill(row, col - 1, walls);
+                floodFill(row + 1, col);
+                floodFill(row, col - 1);
             case 8
-                floodFill(row + 1, col, walls);
-                floodFill(row, col + 1, walls);
+                floodFill(row + 1, col);
+                floodFill(row, col + 1);
             case 9
-                floodFill(row - 1, col, walls);
-                floodFill(row + 1, col, walls);
+                floodFill(row - 1, col);
+                floodFill(row + 1, col);
             case 10
-                floodFill(row, col - 1, walls);
-                floodFill(row, col + 1, walls);
+                floodFill(row, col - 1);
+                floodFill(row, col + 1);
             case 11
-                floodFill(row - 1, col, walls);
+                floodFill(row - 1, col);
             case 12
-                floodFill(row, col - 1, walls);
+                floodFill(row, col - 1);
             case 13
-                floodFill(row + 1, col, walls);
+                floodFill(row + 1, col);
             case 14 
-                floodFill(row, col + 1, walls);
+                floodFill(row, col + 1);
         end
     end
 end

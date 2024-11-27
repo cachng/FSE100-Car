@@ -1,5 +1,8 @@
 % Function to simulate following the right wall in a maze
-function RightTurnAlgothrim(endColor)
+RightTurn(2)
+
+
+function RightTurn(endColor)
 %{
     Initialize EV3 sensors
     colorSensor = brick.SetColorMode(2,2);

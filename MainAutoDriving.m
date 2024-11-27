@@ -131,7 +131,7 @@ end
 
 brick.stopAllMotors(); % stops all motors when it reaches a destination
 
-
+manualDriving()
 
 function drive = ManualDriving()
     %Names: Omar Douglas Cardin Nguyen Shawn Walden Isiah Morris
@@ -214,7 +214,7 @@ function drive = ManualDriving()
         %Motors
         brick.StopMotor('A', 'Coast'); % Motor A drift to Stop
         %brick.StopMotor('B', 'Coast'); % Motor B drift to Stop 
-        %brick.StopMotor('C', 'Coast'); % Motor C drift to Stop (Lift probably shouldn't coast)
+        %brick.StopMotor('C', 'Coast'); % Motor C drift to Stop (Lift probably shouldnt coast)
         brick.StopMotor('D', 'Coast'); % Motor D drift to Stop        
         break;
         end
