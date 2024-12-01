@@ -1,8 +1,5 @@
 % Function to simulate following the right wall in a maze
-RightTurn(2)
-
-
-function RightTurn(endColor)
+endColor = 2;
 %{
     Initialize EV3 sensors
     colorSensor = brick.SetColorMode(2,2);
@@ -48,7 +45,6 @@ function RightTurn(endColor)
     end
 
     disp('Reached the endpoint!');
-end
 
 % Function to move the EV3 robot forward
 function moveForward

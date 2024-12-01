@@ -20,7 +20,7 @@ return;
         % Checks if it is out of bounds or the cell has already been filled
      if row < 1 || row > rows || col < 1 || col > cols || visited == true
             return;
-        end
+    end
     
         % Updates the distance from the end and updates visited array
         distance(row, col) = distFromEnd;
